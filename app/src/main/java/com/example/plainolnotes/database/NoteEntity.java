@@ -1,4 +1,4 @@
-package com.example.plainolnotes.model;
+package com.example.plainolnotes.database;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;

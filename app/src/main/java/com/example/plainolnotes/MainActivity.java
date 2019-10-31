@@ -3,11 +3,9 @@ package com.example.plainolnotes;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.plainolnotes.model.NoteEntity;
+import com.example.plainolnotes.database.NoteEntity;
 import com.example.plainolnotes.ui.NotesAdapter;
 import com.example.plainolnotes.utilities.SampleData;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 

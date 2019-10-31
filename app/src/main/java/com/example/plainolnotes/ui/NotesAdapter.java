@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.plainolnotes.R;
-import com.example.plainolnotes.model.NoteEntity;
+import com.example.plainolnotes.database.NoteEntity;
 
 import java.util.List;
 
