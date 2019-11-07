@@ -9,14 +9,28 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.plainolnotes.database.AppRepository;
 import com.example.plainolnotes.database.NoteEntity;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class EditorViewModel extends AndroidViewModel {
 
-    public MutableLiveData<NoteEntity> mLiveData =
+    public MutableLiveData<NoteEntity> mLiveNote =
             new MutableLiveData<>();
     private AppRepository mRepository;
+    private Executor executor = Executors.newSingleThreadExecutor();
 
     public EditorViewModel(@NonNull Application application) {
         super(application);
         mRepository = AppRepository.getInstance(application);
+    }
+
+    public void loadData(int noteId) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                NoteEntity note = mRepository.getNoteById(noteId);
+                mLiveNote.postValue(note);
+            }
+        });
     }
 }
