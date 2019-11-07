@@ -1,9 +1,10 @@
 package com.example.plainolnotes;
 
 import android.os.Bundle;
-
-import com.example.plainolnotes.database.NoteEntity;
-import com.example.plainolnotes.viewmodel.EditorViewModel;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.TextView;
+import com.example.plainolnotes.database.NoteEntity;
+import com.example.plainolnotes.viewmodel.EditorViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
