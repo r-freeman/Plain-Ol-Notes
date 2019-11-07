@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -31,6 +32,7 @@ public class EditorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_editor);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_check);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ButterKnife.bind(this);
@@ -51,7 +53,7 @@ public class EditorActivity extends AppCompatActivity {
         });
 
         Bundle extras = getIntent().getExtras();
-        if(extras == null) {
+        if (extras == null) {
             setTitle("New note");
             mNewNote = true;
         } else {
@@ -59,5 +61,24 @@ public class EditorActivity extends AppCompatActivity {
             int noteId = extras.getInt(NOTE_ID_KEY);
             mViewModel.loadData(noteId);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            saveAndReturn();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        saveAndReturn();
+    }
+
+    private void saveAndReturn() {
+        mViewModel.saveNote(mTextView.getText().toString());
+        finish();
     }
 }
